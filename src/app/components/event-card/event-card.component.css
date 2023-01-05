@@ -1,0 +1,231 @@
+/* //////////////////////Whole Body START////////////////////// */
+* {
+  font-family: Mulish, Helvetica, Arial, sans-serif !important;
+}
+/* //////////////////////Whole Body START////////////////////// */
+
+
+/*//////////////////////detail0 START////////////////////// */
+#mainbody {
+  box-shadow: #121212 1px 6px 6px 1px;
+  max-height: 35 rem !important;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+#mainbody:hover {
+  transform: scale(1.01);
+  box-shadow: #121212 0px 4px 4px 0px;
+}
+
+.image {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.image img {
+  min-width: 15rem;
+  min-height: 10rem;
+}
+
+.bottom-right {
+  font-size: 12px;
+  color: #121212;
+  background-color: white;
+  padding: 7px 13px;
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  box-shadow: 0 1px 11px #0000001c;
+  font-family: Mulish, Helvetica, Arial, sans-serif;
+}
+
+
+
+@keyframes blink {
+  0% {
+    transform: scale(1);
+    opacity: .25;
+  }
+
+  25% {
+    opacity: .5;
+  }
+
+  50% {
+    opacity: .25;
+  }
+
+  75% {
+    opacity: .5;
+  }
+
+  100% {
+    transform: scale(.8);
+    opacity: .25;
+  }
+}
+
+.blink {
+  float: left;
+  border-radius: 50%;
+  width: .6rem;
+  height: .6rem;
+  opacity: .20;
+  margin-top: 5px;
+  margin-right: 10px;
+  background-color: red;
+  -webkit-animation: blink 1s infinite;
+  -moz-animation: blink 1s infinite;
+  -o-animation: blink 1s infinite;
+  animation: blink 1s infinite;
+}
+
+.blink:after {
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  top: 1 rem;
+  left: 1px;
+  right: 1px;
+  bottom: 1rem;
+  border: 5px solid #ffffff;
+}
+/* //////////////////////detail0 END////////////////////// */
+
+
+/* //////////////////////detail1 START////////////////////// */
+#detail1 {
+  padding: 1rem 1rem 0rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font: bold;
+}
+/* //////////////////////detail1 END////////////////////// */
+
+
+/* //////////////////////detail2 START////////////////////// */
+.detail2 {
+  white-space: nowrap;
+}
+
+.detail2 p {
+  font-family: Mulish, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #1c1c1c99;
+  margin-bottom: 0;
+}
+
+.detail2 h6 {
+  margin-top: 2px;
+  color: #212121;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.detail2 div {
+  display: inline-block;
+  color: rgb(9, 9, 9);
+  text-align: center;
+  padding: 0rem 1rem 0rem 1rem;
+}
+
+.detail2 #item {
+  float: left;
+}
+/* //////////////////////detail2 END////////////////////// */
+
+
+/* //////////////////////detail3 START////////////////////// */
+.detail3 p {
+  font-weight: 100;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+/* //////////////////////detail3 END////////////////////// */
+
+
+
+/* //////////////////////detail4 START////////////////////// */
+.detail4 {
+  float: left;
+  width: 20rem;
+}
+
+.detail4 span {
+  background-color: #eee;
+  font-size: 0.8rem;
+}
+/* //////////////////////detail4 END////////////////////// */
+
+
+
+/* //////////////////////detail5 START////////////////////// */
+.reg {
+  float: right;
+  width: 100%;
+  margin: auto;
+}
+
+.reg a {
+  float: right;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  background: linear-gradient(90deg, #FF6E31, #ee9F15);
+  width: 132px;
+  height: 42px;
+  padding-top: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 18px;
+  text-decoration: none;
+  border-radius: 8%;
+}
+
+.registered-para {
+  margin: 0;
+  color: #757575;
+  font-size: 13px;
+}
+
+.detail5 {
+  display: flex;
+  position: relative;
+}
+
+#img5 {
+  flex-direction: row;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  margin: .135rem;
+}
+
+#img5[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* //////////////////////detail5 END////////////////////// */
+
+
+@media (max-width:400px) {
+  #mainbody {
+    max-width: 20rem !important;
+  }
+
+  .image img {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .detail2 div {
+    text-align: center;
+    padding: 0rem 2px 0rem 2px;
+  }
+}

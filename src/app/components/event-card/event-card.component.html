@@ -1,0 +1,82 @@
+<div  id="mainbody" class="card ">
+    <!-- detail0 START -->
+    <div class="image" id="detail0">
+        <img class="card-img-top" src="{{eventPoster}}" alt="Card image cap">
+
+        <div *ngIf="eventStatus!='PAST'" class="bottom-right">
+            <div class="blink"></div>
+            <span> Registration <strong>open</strong> till
+                <strong>
+                    {{eventStartTime | date: 'hh:mm aaa, dd MMM yyyy'}}
+                </strong>
+            </span>
+        </div>
+    </div>
+    <!-- detail0 END -->
+  
+    <!-- detail1 START -->
+    <div id="detail1">
+        <h4 class="card-title">{{eventName}}</h4>
+    </div>
+    <!-- detail1 END -->
+    <hr>
+    <!-- detail2 START-->
+    <div class="detail2">
+        <div>
+            <p id="item">Starts on
+            <p>
+            <h6 id="item">{{eventRegTime | date: 'hh:mm aaa, dd MMM yyyy'}}</h6>
+        </div>
+        <div>
+            <p id="item">Entry Fee
+            <p>
+            <h6 id="item">{{eventEntryFee}}</h6>
+        </div>
+        <div>
+            <p id="item">Venue
+            <p>
+            <h6 id="item">{{eventVenue}}</h6>
+        </div>
+    </div>
+    <!-- detail2 END -->
+
+    <!-- <hr> -->
+
+    <!-- detail3 START -->
+    <div class="detail3">
+        <p class="card-text">{{eventDescription}}</p>
+    </div>
+    <!-- detail3 END -->
+    <br>
+    <!-- detail4 START -->
+    <div class="detail4">
+        <span class="p-1 mx-1" *ngFor="let tag of tags;let i =index;">
+            <span>{{tag}}</span>
+        </span>
+        <span *ngIf="extraTag!=0" style="color: #FA7328;">+{{extraTag}} more</span>
+    </div>
+    <!-- detail4 END -->
+    <hr>
+    <!-- detail5 START -->
+    <div class="detail5">
+        <div *ngFor="let user of eventUsers">
+            <img id="img5" *ngIf="user['image_url']!=''" [src]="user['image_url']" alt="" [title]="user['name']">
+            <img id="img5" *ngIf="user['image_url']==''" src="https://files.codingninjas.in/0000000000001270.png" alt=""
+                [title]="user['name']">
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        <p *ngIf="eventUsers.length!=0" style="float: left;" class="registered-para">and <strong>{{otherUsers}}</strong>
+            others
+            <span *ngIf="eventStatus=='PAST'"> participated.</span>
+            <span *ngIf="eventStatus!='PAST'">are participating.</span>
+        </p>
+
+        <span *ngIf="eventStatus!='PAST'" [ngStyle]="{'margin-top':(eventUsers.length==0)?'7%':'' }" class="reg">
+            <a href={{registerLink}} target="_blank">Register</a>
+        </span>
+    </div>
+    <!-- detail5 END -->
+
+</div>

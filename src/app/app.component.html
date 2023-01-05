@@ -1,0 +1,168 @@
+<div class="body">
+
+    <div #targetTop class="mainHeading">
+        <h3>EVENTS & NEWS</h3>
+        <h4>Learn, Compete & Grow</h4   >
+    </div>
+
+    <div  class="mainBody">
+        <div class="subBody">
+            <div class="header1">
+                <a (click)="setCategoryID(0)">
+                    <ng-container *ngIf="categoryID===0;">
+                        <img src="../assets/icons/all-events-selected.svg" />
+                        <span [ngStyle]="{ color: '#FA7328' }">
+                            All Events
+                        </span>
+                    </ng-container>
+                    <ng-container *ngIf="categoryID!==0;">
+                        <img src="../assets/icons/all-events-unselected.svg" /> All Events
+                    </ng-container>
+                </a>
+                <a (click)="setCategoryID(1)">
+                    <ng-container *ngIf="categoryID===1;">
+                        <img src="../assets/icons/webinar-selected.svg" />
+                        <span [ngStyle]="{ color: '#FA7328' }"> Webinars </span>
+                    </ng-container>
+                    <ng-container *ngIf="categoryID!==1;">
+                        <img src="../assets/icons/webinar-unselected.svg" /> Webinars
+                    </ng-container>
+                </a>
+                <a (click)="setCategoryID(2)">
+                    <ng-container *ngIf="categoryID===2;">
+                        <img src="../assets/icons/coding-events-selected.svg" />
+                        <span [ngStyle]="{ color: '#FA7328' }">
+                            Coding Events
+                        </span>
+                    </ng-container>
+                    <ng-container *ngIf="categoryID!==2;">
+                        <img src="../assets/icons/coding-events-unselected.svg" /> Coding Events
+                    </ng-container>
+                </a>
+                <a (click)="setCategoryID(3)">
+                    <ng-container *ngIf="categoryID===3;">
+                        <img id="error" src="../assets/icons/bootcamp_events_selected.png" />
+                        <span [ngStyle]="{ color: '#FA7328' }">
+                            Bootcamp Events
+                        </span>
+                    </ng-container>
+                    <ng-container *ngIf="categoryID!==3;">
+                        <img id="error" src="../assets/icons/bootcamp_events_unselected-5397.png" /> Bootcamp Events
+                    </ng-container>
+                </a>
+                <a (click)="setCategoryID(4)">
+                    <ng-container *ngIf="categoryID===4;">
+                        <img id="error" src="../assets/icons/workshop_selected.png" />
+                        <span [ngStyle]="{ color: '#FA7328' }">
+                            Workshops
+                        </span>
+                    </ng-container>
+                    <ng-container *ngIf="categoryID!==4;">
+                        <img id="error" src="../assets/icons/workshop_unselected.png" /> Workshops
+                    </ng-container>
+                </a>
+            </div>
+
+            <div class="header2">
+                <a (click)="setSubCategoryID(0)" [ngStyle]="{ color:(subCategoryID==0)? '#FA7328':''}">Upcoming </a>
+                <a (click)="setSubCategoryID(1)" [ngStyle]="{ color:(subCategoryID==1)? '#FA7328':''}">
+                    {{xtitle}}
+                </a>
+                <a (click)="setSubCategoryID(2)" [ngStyle]="{ 'display':(categoryID==1)? 'none':''}"
+                    [ngStyle]="{ color:(subCategoryID==2)? '#FA7328':''}">All Time
+                    Favorites</a>
+            </div>
+
+
+            <div  id="mainBox">
+                <div id="child" class="eventBox">
+                    <div class="cardBox" *ngFor="let event of events">
+                        <app-event-card [event]=event></app-event-card>
+                        <br>
+                    </div>
+                    <div class="noEvents" *ngIf="events.length==0">
+                        <img class="vert-move" src="../assets/icons/438375-17407.webp" />
+                        <p>
+                            Ninja is preparing events for you...
+                            <br>
+                            Please visit again!
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <div #targetTag id="child" class="taglistBox">
+                    <h3>TAGS</h3>
+                    <div class="search-box" style="margin-bottom: 4px;">
+                        <input type="text" style="width: 150px;" [(ngModel)]="searchItem" name="searchItem"
+                            placeholder="Type to search..." />
+                        <i class="fas fa-search" (click)="search(searchItem)"
+                            style="margin-left:5px;cursor: pointer;"></i>
+                    </div>
+                    <ng-container *ngIf="searchVar===0;">
+                        <span>Nothing Found</span>
+                        <i class="fas fa-times" (click)="clearSearch()"
+                            style="margin-left:4px;cursor: pointer;font-size:24px;"></i>
+                    </ng-container>
+
+                    <div class="tags">
+                        <ng-container *ngIf="searchVar===1;">
+                            <a class="tagbutton" (click)="addTag(searchItem)"
+                                [ngStyle]="{ 'background-color':(selectedTags.indexOf(searchItem)>-1)? '#FA7328':''}">
+                                {{searchItem}}
+                            </a>
+                            <i class="fas fa-times" (click)="clearSearch()"
+                                style="margin-left:4px;cursor: pointer;font-size:24px;"></i>
+                        </ng-container>
+                        <div *ngFor="let tag of tags1">
+                            <a class="tagbutton" (click)="addTag(tag)"
+                                [ngStyle]="{ 'background-color':(selectedTags.indexOf(tag)>-1)? '#FA7328':''}">
+                                {{tag}}
+                            </a>
+                        </div>
+                        <ng-container *ngIf="wantToSee==='less';">
+                            <div *ngFor="let tag of tags2">
+                                <a class="tagbutton" (click)="addTag(tag)"
+                                    [ngStyle]="{ 'background-color':(selectedTags.indexOf(tag)>-1)? '#FA7328':''}">
+                                    {{tag}}</a>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <span id="taglistSeeMore" (click)="toggleSeeMore()">
+                        See {{wantToSee}} tags
+                    </span>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="subFooter" *ngIf="events.length!=0">
+            <ng-container *ngIf="currPage==1;">
+                <button disabled="true" class="previous round btnDsbl">&#8249;</button>
+            </ng-container>
+            <ng-container *ngIf="currPage!=1;">
+                <button (click)="prevPage()" class="previous round btnEnbl">&#8249;</button>
+            </ng-container>
+
+            <span>
+                Page <strong> {{currPage}} </strong> of <strong>{{totalPg}} </strong> </span>
+            <ng-container *ngIf="currPage==totalPg;">
+                <button disabled="true" class="next round btnDsbl">&#8250;</button>
+            </ng-container>
+            <ng-container *ngIf="currPage<totalPg;">
+                <button (click)="nextPage()" class="next round btnEnbl">&#8250;</button>
+            </ng-container>
+        </div>
+      
+    </div>
+    <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
+        <button class="toTopBtn" (click)="scroll(targetTop)">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+    <div class="filter">
+        <button (click)="scroll(targetTag)"> Apply Filter</button>
+    </div>
+    
+</div>

@@ -1,0 +1,356 @@
+.body {
+    background: linear-gradient(90deg, #835fa6, #411167);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+
+.mainHeading {
+    color: white;
+    font-weight: bolder;
+    padding: 3rem 0 0 5rem;
+    font-family: brush system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.mainBody {
+    margin: 3rem 5rem 2rem 5rem;
+    border: 1px solid;
+    background-color: white;
+}
+
+/* //////////////////////headers START //////////////////////*/
+.header1 {
+    font-weight: 700;
+    background-color: rgb(246, 239, 227);
+    min-height: 3rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    padding: 8px;
+}
+
+.header1 a {
+    color: rgb(71, 68, 68);
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.header1 img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.header1 a:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.header2 {
+    font-weight: 700;
+    background-color: rgb(246, 243, 237);
+    min-height: 3rem;
+    height: auto;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+}
+
+.header2 a {
+    display: inline-block;
+    color: grey;
+    text-align: center;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+div.header2 a:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+/* //////////////////////Headers END //////////////////////*/
+
+/* //////////////////////Main Box START //////////////////////*/
+#mainBox {
+    height: 500px;
+    overflow: x;
+    display: table;
+    flex-wrap: wrap;
+}
+
+.eventBox {
+    flex: auto;
+    float: left;
+    width: 80%;
+    padding: 0 10px;
+}
+
+.cardBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex: auto;
+    float: left;
+    width: 50%;
+    min-height: 40rem;
+    padding: 10px 20px;
+}
+
+div.taglistBox {
+    font-size: 100%;
+    float: right;
+    width: 20%;
+    margin: 1rem 0rem 1rem;
+}
+
+.taglistBox .tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.taglistBox h3 {
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #616161;
+    margin-bottom: 15px;
+}
+
+.taglistBox a {
+    color: #424242;
+    font-size: 14px;
+    padding: 6px 12px;
+    display: block;
+    font-weight: normal;
+    border-radius: 1px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    background-color: #eeee;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.taglist a:hover {
+    transform: scale(1.03);
+    background-color: #ddd;
+    color: black;
+}
+
+#taglistSeeMore {
+    float: left;
+    left: 0;
+    cursor: pointer;
+    color: #FA7328;
+    margin-left: 5px;
+}
+
+/* //////////////////////Main Box END //////////////////////*/
+
+/* //////////////////////SubFooter START //////////////////////*/
+.subFooter a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.subFooter {
+    margin: 0px 14px;
+}
+
+.subFooter button {
+    cursor: pointer;
+    border-radius: 10%;
+    height: 3rem;
+    width: 3rem;
+}
+
+.subFooter .btnDsbl {
+    color: grey;
+    background-color: lightsalmon;
+}
+
+.subFooter .btnEnbl {
+    background-color: #FA7328;
+    color: black;
+    border-radius: 10%;
+    border-color: grey;
+}
+
+.subFooter {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* //////////////////////SubFooter END //////////////////////*/
+
+/* //////////////////////EvenBox(No events) START//////////////////////*/
+.noEvents {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.noEvents p {
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    color: #FA7328
+}
+
+.noEvents img {
+    width: 50%;
+    margin: auto;
+    height: 23rem;
+    width: 25rem;
+    margin-top: 5%;
+}
+
+img.vert-move {
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
+}
+
+img.vert-move {
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
+}
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+/* //////////////////////EvenBox(No events) END//////////////////////*/
+
+/* //////////////////////Filter Button START//////////////////////*/
+.filter {
+    display: none;
+    align-items: center;
+    background-color: white;
+}
+
+.filter button {
+    background: #FA7328;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 35px;
+    right: 25px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+}
+
+.show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+}
+
+.toTopBtn {
+    background-color: #FA7328;
+}
+/* //////////////////////Filter Button END//////////////////////*/
+
+
+@media (max-width:1200px) {
+    .scroll-to-top {
+        bottom: 50px;
+    }
+
+    .filter {
+        display: contents;
+    }
+
+    #mainBox {
+        overflow: none;
+        flex: auto;
+    }
+
+    .header1,.header2{
+        flex: auto;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .eventBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        float: none;
+    }
+
+    div.taglistBox {
+        float: none !important;
+        width: 100% !important;
+        align-items: center;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 700px) {
+    #mainBox {
+        width: auto;
+        width: 100%;
+        display: contents;
+        flex-wrap: wrap;
+    }
+
+    .eventBox {
+        width: 100% !important;
+    }
+
+
+    .mainBody {
+        margin: 0!important;
+    }
+
+    .mainHeading {
+        padding-left: 5px;
+    }
+
+    .noEvents img {
+        max-width: 15rem;
+        max-height: 15rem;
+    }
+
+    .noEvents p {
+        font-size: 15px !important;
+    }
+
+}
+
+@media (max-width: 500px) {
+    div .cardBox {
+        max-width: 15rem !important;
+        max-height: 15rem !important;
+        display: table;
+    }
+
+}
