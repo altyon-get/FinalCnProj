@@ -2,10 +2,10 @@
 
     <div #targetTop class="mainHeading">
         <h3>EVENTS & NEWS</h3>
-        <h4>Learn, Compete & Grow</h4   >
+        <h4>Learn, Compete & Grow</h4>
     </div>
 
-    <div  class="mainBody">
+    <div class="mainBody">
         <div class="subBody">
             <div class="header1">
                 <a (click)="setCategoryID(0)">
@@ -74,7 +74,7 @@
             </div>
 
 
-            <div  id="mainBox">
+            <div id="mainBox" [ngStyle]="{'display':(tags.length==0)? 'flex':''}">
                 <div id="child" class="eventBox">
                     <div class="cardBox" *ngFor="let event of events">
                         <app-event-card [event]=event></app-event-card>
@@ -93,46 +93,48 @@
 
 
                 <div #targetTag id="child" class="taglistBox">
-                    <h3>TAGS</h3>
-                    <div class="search-box" style="margin-bottom: 4px;">
-                        <input type="text" style="width: 150px;" [(ngModel)]="searchItem" name="searchItem"
-                            placeholder="Type to search..." />
-                        <i class="fas fa-search" (click)="search(searchItem)"
-                            style="margin-left:5px;cursor: pointer;"></i>
-                    </div>
-                    <ng-container *ngIf="searchVar===0;">
-                        <span>Nothing Found</span>
-                        <i class="fas fa-times" (click)="clearSearch()"
-                            style="margin-left:4px;cursor: pointer;font-size:24px;"></i>
-                    </ng-container>
-
-                    <div class="tags">
-                        <ng-container *ngIf="searchVar===1;">
-                            <a class="tagbutton" (click)="addTag(searchItem)"
-                                [ngStyle]="{ 'background-color':(selectedTags.indexOf(searchItem)>-1)? '#FA7328':''}">
-                                {{searchItem}}
-                            </a>
+                    <div *ngIf="tags.length!=0">
+                        <h3>TAGS</h3>
+                        <div class="search-box" style="margin-bottom: 4px;">
+                            <input type="text" style="width: 150px;" [(ngModel)]="searchItem" name="searchItem"
+                                placeholder="Type to search..." />
+                            <i class="fas fa-search" (click)="search(searchItem)"
+                                style="margin-left:5px;cursor: pointer;"></i>
+                        </div>
+                        <ng-container *ngIf="searchVar===0;">
+                            <span>Nothing Found</span>
                             <i class="fas fa-times" (click)="clearSearch()"
                                 style="margin-left:4px;cursor: pointer;font-size:24px;"></i>
                         </ng-container>
-                        <div *ngFor="let tag of tags1">
-                            <a class="tagbutton" (click)="addTag(tag)"
-                                [ngStyle]="{ 'background-color':(selectedTags.indexOf(tag)>-1)? '#FA7328':''}">
-                                {{tag}}
-                            </a>
-                        </div>
-                        <ng-container *ngIf="wantToSee==='less';">
-                            <div *ngFor="let tag of tags2">
+
+
+                        <div class="tags">
+                            <ng-container *ngIf="searchVar===1;">
+                                <a class="tagbutton" (click)="addTag(searchItem)"
+                                    [ngStyle]="{ 'background-color':(selectedTags.indexOf(searchItem)>-1)? '#FA7328':''}">
+                                    {{searchItem}}
+                                </a>
+                                <i class="fas fa-times" (click)="clearSearch()"
+                                    style="margin-left:4px;cursor: pointer;font-size:24px;"></i>
+                            </ng-container>
+                            <div *ngFor="let tag of tags1">
                                 <a class="tagbutton" (click)="addTag(tag)"
                                     [ngStyle]="{ 'background-color':(selectedTags.indexOf(tag)>-1)? '#FA7328':''}">
-                                    {{tag}}</a>
+                                    {{tag}}
+                                </a>
                             </div>
-                        </ng-container>
+                            <ng-container *ngIf="wantToSee==='less';">
+                                <div *ngFor="let tag of tags2">
+                                    <a class="tagbutton" (click)="addTag(tag)"
+                                        [ngStyle]="{ 'background-color':(selectedTags.indexOf(tag)>-1)? '#FA7328':''}">
+                                        {{tag}}</a>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <span id="taglistSeeMore" (click)="toggleSeeMore()">
+                            See {{wantToSee}} tags
+                        </span>
                     </div>
-                    <span id="taglistSeeMore" (click)="toggleSeeMore()">
-                        See {{wantToSee}} tags
-                    </span>
-
                 </div>
 
             </div>
@@ -154,7 +156,7 @@
                 <button (click)="nextPage()" class="next round btnEnbl">&#8250;</button>
             </ng-container>
         </div>
-      
+
     </div>
     <div class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled}">
         <button class="toTopBtn" (click)="scroll(targetTop)">
@@ -164,5 +166,5 @@
     <div class="filter">
         <button (click)="scroll(targetTag)"> Apply Filter</button>
     </div>
-    
+
 </div>
